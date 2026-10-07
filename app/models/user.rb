@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_secure_password
   #Um usúario tem uma carteira, se aconta for deletada, a carteira tb vai
   has_one :wallet, dependent: :destroy
+
+  validates :email, presence: true
+
   #td vez q algum user for criado no banco, o rails vai chamar esse metodo
   after_create :setup_wallet
 
